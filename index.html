@@ -87,15 +87,16 @@
   
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    console.log('here');
+    
     const formData = new FormData(form);
     const newTitle = formData.get('title');
     const newAuthor = formData.get('author');
     const newPages = formData.get('pages');
     const newIsbn = formData.get('isbn');
     const newRead = formData.get('read');
+    const newId = id;
   
-    const newBook = new Book(newTitle, newAuthor, newPages, newIsbn, newRead);
+    const newBook = new Book(newTitle, newAuthor, newPages, newIsbn, newRead, newId);
   
     let newBookCard = createBookCard(newBook);
     id++;
