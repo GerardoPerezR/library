@@ -2,26 +2,6 @@
 
 var id = 1;
 
-document.addEventListener('click', (event) => {
-  const button = event.target.closest('button[data-book-id][data-read-status]');
-  if (!button) return;
-
-  const bookId = parseInt(button.dataset.bookId);
-  const currentReadStatus = button.dataset.readStatus === 'true';
-  const newReadStatus = !currentReadStatus;
-
-  const bookIndex = myLibrary.findIndex((book) => book.id === bookId);
-  if (bookIndex === -1) return;
-
-  const book = myLibrary[bookIndex];
-  book.read = newReadStatus;
-
-  const readStatusElement = document.getElementById(`read-status-${book.id}`);
-  if (!readStatusElement) return;
-
-  readStatusElement.textContent = newReadStatus ? 'Yes' : 'No';
-  button.dataset.readStatus = newReadStatus.toString();
-});
 
 
 //book object constructor

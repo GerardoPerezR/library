@@ -98,7 +98,7 @@
     const newBook = new Book(newTitle, newAuthor, newPages, newIsbn, newRead);
   
     let newBookCard = createBookCard(newBook);
-    bookId++;
+    id++;
     document.getElementById('books').innerHTML += newBookCard;
    myLibrary.push(newBook)
     console.log(newBook);
