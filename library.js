@@ -9,6 +9,7 @@ function Book(title, author, pages, isbn, read, bookId) {
   this.pages = pages;
   this.isbn = isbn;
   this.read = read;
+  this.bookId = bookId;
   
 
 }
@@ -24,7 +25,9 @@ const myLibrary = [book1, book2,];
 Book.prototype.sayInfo = function() {
   console.log(`${title}written by${author}is${pages}long`)};
 
+
 //create book card
+
 
 
 
@@ -39,6 +42,8 @@ const createBookCard = (book) => {
     <li class="list-group-item">ISBN: ${book.pages}</li>
     <li class="list-group-item">Pages: ${book.isbn}</li>
     <li class="list-group-item">Read: ${book.read}</li>
+    <button type="button" class="btn btn-secondary" data-book-id="${book.bookId}" data-read-status="${book.read}">Read</button>
+</div>
   </ul>
 </p>
 </div>`;
