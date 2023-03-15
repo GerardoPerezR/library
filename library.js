@@ -1,15 +1,37 @@
 
 
-var bookId = 1;
+var id = 1;
+
+document.addEventListener('click', (event) => {
+  const button = event.target.closest('button[data-book-id][data-read-status]');
+  if (!button) return;
+
+  const bookId = parseInt(button.dataset.bookId);
+  const currentReadStatus = button.dataset.readStatus === 'true';
+  const newReadStatus = !currentReadStatus;
+
+  const bookIndex = myLibrary.findIndex((book) => book.id === bookId);
+  if (bookIndex === -1) return;
+
+  const book = myLibrary[bookIndex];
+  book.read = newReadStatus;
+
+  const readStatusElement = document.getElementById(`read-status-${book.id}`);
+  if (!readStatusElement) return;
+
+  readStatusElement.textContent = newReadStatus ? 'Yes' : 'No';
+  button.dataset.readStatus = newReadStatus.toString();
+});
+
 
 //book object constructor
-function Book(title, author, pages, isbn, read, bookId) {
+function Book(title, author, pages, isbn, read,id) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.isbn = isbn;
   this.read = read;
-  this.bookId = bookId;
+  this.id = id;
   
 
 }
@@ -34,7 +56,7 @@ Book.prototype.sayInfo = function() {
 
 const createBookCard = (book) => {
   return ` <div class="card" style="height: auto; width: 18rem;">
-<h5 class="card-title">Book${bookId}</h5>
+<h5 class="card-title">Book${id}</h5>
 <p class="card-text">
   <ul class="list-group">
     <li class="list-group-item">Title: ${book.title}</li>
@@ -42,7 +64,10 @@ const createBookCard = (book) => {
     <li class="list-group-item">ISBN: ${book.pages}</li>
     <li class="list-group-item">Pages: ${book.isbn}</li>
     <li class="list-group-item">Read: ${book.read}</li>
-    <button type="button" class="btn btn-secondary" data-book-id="${book.bookId}" data-read-status="${book.read}">Read</button>
+    <div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault">Read</label>
+</div>
 </div>
   </ul>
 </p>
