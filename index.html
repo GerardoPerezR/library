@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="/library.js"></script>
+<script src="/library.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css"   href="library.css">
   <title>Library</title>
@@ -14,12 +14,12 @@
   <div class="container">
    <h2 class="text-center">BOOKS</h2>
 
-    <div class="row" id="books">
+    <div class="row" id="books">asdasdasd
    <script>
     const bookCardsContainer = document.getElementById("books");
 
    
-    for (var i = 0; i <= myLibrary.length; i++) {
+    for (var i = 0; i < myLibrary.length; i++) {
        const cardHTML = createBookCard(myLibrary[i]);
        bookCardsContainer.innerHTML += cardHTML;
     }
@@ -36,23 +36,58 @@
 
   </div>
 
-  <div class="container" id="formContainer">  <form id="newBookForm" >
-    <label for="title">Title</label>
-    <input type="text" name="title" id="title">
-    <label for="author">Author:</label>
-    <input type="text" name="author" id="author">
-    <label for="pages">Pages</label>
-    <input type="number" name="pages" id="pages">
-    <label for="isbn">ISBN:</label>
-    <input type="number" name="isbn" id="isbn">
-    <label for="read">Read?</label>
-    <input type="checkbox" name="read" id="read">
-    <button class="btn btn-primary" type="submit">ADD NEW BOOK</button>
+  <div class="container" id="formContainer">  
+    <form id="newBookForm" >
+    <div class="mb-3">
+      <label for="title" class="form-label">Title:        </label>
+    <input type="text" class="form-control" name="title" id="title">
+    </div>
+
+    <div class="mb-3">   
+      <label for="author" class="form-label">Author:</label>
+    <input type="text" class="form-control" name="author" id="author"></div>
+    <div class="mb-3">   
+      <label for="pages">Pages</label>
+    <input type="number" class="form-control" name="pages" id="pages"></div>
+    <div class="mb-3">  
+      <label for="isbn">ISBN:</label>
+    <input type="number" class="form-control" name="isbn" id="isbn"></div>
+    <div class="mb-3">   
+      <label for="read">Read?</label>
+    <input type="checkbox" class="form-check-input" name="read" id="read"></div>
+    
+ 
+ 
+  
+
+    <button class="btn btn-primary" type="submit" id="submitButton">ADD NEW BOOK</button>
   </form>
 </div>
+<script>  const submit = document.getElementById('submitButton');
+  const form = document.getElementById('newBookForm');
+  
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    console.log('here');
+    const formData = new FormData(form);
+    const newTitle = formData.get('title');
+    const newAuthor = formData.get('author');
+    const newPages = formData.get('pages');
+    const newIsbn = formData.get('isbn');
+    const newRead = formData.get('read');
+  
+    const newBook = new Book(newTitle, newAuthor, newPages, newIsbn, newRead);
+  
+    let newBookCard = createBookCard(newBook);
+    document.getElementById('books').innerHTML += newBookCard;
+  
+    console.log(newBook);
+  
+  });</script>
 
   
 
 
 </body>
+
 </html>

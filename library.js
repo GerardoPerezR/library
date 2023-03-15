@@ -17,10 +17,10 @@ function Book(title, author, pages, isbn, read) {
 const book1 = new Book('Don Quijote', 'Cervantes', 587, 34623, true);
 const book2 = new Book('Ulysses', 'James Joyce', 236, 247623, false);
 
-const myLibrary = [book1, book2];
+const myLibrary = [book1, book2,];
 
 
-const form = document.querySelector('#newBookForm')
+
 Book.prototype.sayInfo = function() {
   console.log(`${title}written by${author}is${pages}long`)};
 
@@ -45,6 +45,7 @@ const createBookCard = (book) => {
 }
 
   // add book to library
+
 
 
 function addBook(title, author, pages, isbn, read, id)  {
