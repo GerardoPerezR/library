@@ -14,7 +14,7 @@
   <div class="container">
    <h2 class="text-center">BOOKS</h2>
 
-    <div class="row" id="books">asdasdasd
+    <div class="row" id="books">
    <script>
     const bookCardsContainer = document.getElementById("books");
 
@@ -22,6 +22,7 @@
     for (var i = 0; i < myLibrary.length; i++) {
        const cardHTML = createBookCard(myLibrary[i]);
        bookCardsContainer.innerHTML += cardHTML;
+       bookId++;
     }
 
       
@@ -79,9 +80,11 @@
     const newBook = new Book(newTitle, newAuthor, newPages, newIsbn, newRead);
   
     let newBookCard = createBookCard(newBook);
+    bookId++;
     document.getElementById('books').innerHTML += newBookCard;
-  
+   myLibrary.push(newBook)
     console.log(newBook);
+    console.log(myLibrary)
   
   });</script>
 

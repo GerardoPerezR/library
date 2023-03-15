@@ -1,9 +1,9 @@
 
 
-var bookId = 0;
+var bookId = 1;
 
 //book object constructor
-function Book(title, author, pages, isbn, read) {
+function Book(title, author, pages, isbn, read, bookId) {
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -31,7 +31,7 @@ Book.prototype.sayInfo = function() {
 
 const createBookCard = (book) => {
   return ` <div class="card" style="height: auto; width: 18rem;">
-<h5 class="card-title">Book1</h5>
+<h5 class="card-title">Book${bookId}</h5>
 <p class="card-text">
   <ul class="list-group">
     <li class="list-group-item">Title: ${book.title}</li>
