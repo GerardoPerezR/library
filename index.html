@@ -7,12 +7,14 @@
 <script src="/library.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css"   href="library.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <title>Library</title>
 </head>
 <body>
 
-  <div class="container">
-   <h2 class="text-center">BOOKS</h2>
+  <h1 class="text-center sticky-top">BOOKS</h1>
+  <div class="container-fluid">
+ 
 
     <div class="row" id="books">
    <script>
@@ -25,45 +27,60 @@
        bookId++;
     }
 
-      
-
-
-
-  
+    
    </script>
 
     </div>
  
 
   </div>
-
-  <div class="container" id="formContainer">  
-    <form id="newBookForm" >
-    <div class="mb-3">
-      <label for="title" class="form-label">Title:        </label>
-    <input type="text" class="form-control" name="title" id="title">
-    </div>
-
-    <div class="mb-3">   
-      <label for="author" class="form-label">Author:</label>
-    <input type="text" class="form-control" name="author" id="author"></div>
-    <div class="mb-3">   
-      <label for="pages">Pages</label>
-    <input type="number" class="form-control" name="pages" id="pages"></div>
-    <div class="mb-3">  
-      <label for="isbn">ISBN:</label>
-    <input type="number" class="form-control" name="isbn" id="isbn"></div>
-    <div class="mb-3">   
-      <label for="read">Read?</label>
-    <input type="checkbox" class="form-check-input" name="read" id="read"></div>
-    
- 
- 
-  
-
-    <button class="btn btn-primary" type="submit" id="submitButton">ADD NEW BOOK</button>
-  </form>
 </div>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
+  NEW ADD NEW BOOK
+</button>
+
+<div id="formModal" class="modal fade" tabindex="-1" aria-hidden="true" ">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="formModalLabel">ADD NEW BOOK</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container" id="formContainer">  
+          <form id="newBookForm" >
+          <div class="mb-3">
+            <label for="title" class="form-label">Title:        </label>
+          <input type="text" class="form-control" name="title" id="title">
+          </div>
+      
+          <div class="mb-3">   
+            <label for="author" class="form-label">Author:</label>
+          <input type="text" class="form-control" name="author" id="author"></div>
+          <div class="mb-3">   
+            <label for="pages">Pages</label>
+          <input type="number" class="form-control" name="pages" id="pages"></div>
+          <div class="mb-3">  
+            <label for="isbn">ISBN:</label>
+          <input type="number" class="form-control" name="isbn" id="isbn"></div>
+          <div class="mb-3">   
+            <label for="read">Read?</label>
+          <input type="checkbox" class="form-check-input" name="read" id="read"></div>
+          
+       
+       
+        
+      
+          <button class="btn btn-primary" type="submit" data-bs-dismiss="modal" id="submitButton">ADD NEW BOOK</button>
+        </form>
+      </div>
+        ...
+      </div>
+      <div class="modal-footer">yeah</div>
+    </div>
+  </div>
+
 <script>  const submit = document.getElementById('submitButton');
   const form = document.getElementById('newBookForm');
   
