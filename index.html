@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,53 +11,25 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <title>Library</title>
 </head>
+
 <body>
 
-  <h1 class="text-center sticky-top">BOOKS</h1>
-  <div class="container-fluid">
- 
+<h1 class="text-center sticky-top">BOOKS</h1>
 
-    <div class="row" id="books">
-   <script>
+<!--LIBRARY DISPLAY-->
+
+ <div class="container-fluid">
+   <div class="row" id="books">
+      <script>
+      displayLibrary();
   
-
-   
-    displayLibrary();
-
-   
-    const buttons = document.querySelectorAll('button[data-book-id]');
-    // Loop over the NodeList and add an event listener to each button
-buttons.forEach(button => {
-  button.addEventListener('click', function() {
-    const bookId = this.dataset.bookId; // Get the book ID from the button's data attribute......how???
-    console.log("bookId" + bookId);
-    
-    const readStatus = this.dataset.readStatus; // Get the read status from the button's data attribute
-    if ( myLibrary[bookId - 1].read == true)  {
-      myLibrary[bookId - 1].read = false;
-    }
-
-    else{
-      myLibrary[bookId - 1].read = true;
-    }
-    console.log(myLibrary[bookId - 1].read)
-    // TODO: Update the read status of the book with the given ID
-   
-    console.log(myLibrary)
-    displayLibrary();
- 
-  });
-});
-    
-    
-
-   </script>
-
+      </script>
     </div>
- 
-
   </div>
-</div>
+
+<!--***************-->  
+
+<!--ADD NEW BOOKS BUTTON AND FORM MODAL-->  
 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
   NEW ADD NEW BOOK
@@ -101,11 +74,9 @@ buttons.forEach(button => {
       </div>
       <div class="modal-footer">yeah</div>
     </div>
-  </div>
+</div>
 
-
-  //new Book Form
-<script>  
+  <script>  
 
   const submit = document.getElementById('submitButton');
   const form = document.getElementById('newBookForm');
@@ -142,11 +113,10 @@ buttons.forEach(button => {
   addButtons();
     
   
-  });</script>
+  });
+  </script>
 
-  
-
-
+<!--*************************************-->
 </body>
 
 </html>

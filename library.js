@@ -18,7 +18,6 @@ const book2 = new Book('Ulysses', 'James Joyce', 236, 247623, true, 2);
 
 const myLibrary = [book1, book2];
 
-
 const createBookCard = (book) => {
 
   if (book.read == true)  {
@@ -55,27 +54,22 @@ id++
 }
 
 var i = 0;
-var id = i + 1;
+
 
 
 
 function displayLibrary() {
   id = 1;
-    const bookCardsContainer = document.getElementById("books");
+  const bookCardsContainer = document.getElementById("books");
   bookCardsContainer.innerHTML= '';
  
-
   for (var i = 0; i < myLibrary.length; i++) {
    
     const cardHTML = createBookCard(myLibrary[i]);
     bookCardsContainer.innerHTML += cardHTML;
-
-
-
-
-
-    
-  }  addButtons();
+}
+  
+  addButtons();
 }
 
 function addButtons() {
@@ -103,36 +97,6 @@ button.addEventListener('click', function() {
 });
 });
 }
-
-addButtons2();
-function addButtons2() {
-  const buttons = document.querySelectorAll('button[data-book-id]');
-  // Loop over the NodeList and add an event listener to each button
-  buttons.forEach(button => {
-    button.addEventListener('click', function () {
-
-
-
-      console.log("Read Status" + newBook.read);
-      if (newBook.read == true) {
-        newBook.read = false;
-      }
-
-      else {
-        newBook.read = true;
-      }
-
-      console.log(newBook.read);
-      // TODO: Update the read status of the book with the given ID
-      console.log("it's alive");
-      displayLibrary();
-      console.log(myLibrary);
-    });
-  });
-}
-
-  // add book to library
-
 
 function addBook(title, author, pages, isbn, read, id)  {
           const book = new Book(title, author, pages, isbn, read, id);
