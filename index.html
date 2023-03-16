@@ -13,28 +13,23 @@
 </head>
 
 <body>
-
 <h1 class="text-center sticky-top">BOOKS</h1>
 
 <!--LIBRARY DISPLAY-->
 
  <div class="container-fluid">
    <div class="row" id="books">
-      <script>
-        displayLibrary();
-      </script>
-    </div>
-  </div>
+      <script>  displayLibrary(); </script> 
+   </div>
+ </div>
 
 <!--***************-->  
 
 <!--ADD NEW BOOKS BUTTON AND FORM MODAL-->  
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
-  NEW ADD NEW BOOK
-</button>
-
-<div id="formModal" class="modal fade" tabindex="-1" aria-hidden="true" ">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">ADD NEW BOOK</button>
+  
+<div id="formModal" class="modal fade" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -75,42 +70,7 @@
     </div>
 </div>
 
-  <script>  
-
-  const submit = document.getElementById('submitButton');
-  const form = document.getElementById('newBookForm');
-  
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    var newRead = false;
-    const formData = new FormData(form);
-
-    if (formData.get('read') === "on")  {
-        newRead = true;
-    }
-    else{
-       newRead = false;
-    }
-
-    const newTitle = formData.get('title');
-    const newAuthor = formData.get('author');
-    const newPages = formData.get('pages');
-    const newIsbn = formData.get('isbn');
-    const newId = id;
-
-    const newBook = new Book(newTitle, newAuthor, newPages, newIsbn, newRead, newId);
-    let newBookCard = createBookCard(newBook);
-    document.getElementById('books').innerHTML += newBookCard;
-    
-    myLibrary.push(newBook)
-    console.log(newBook); console.log(myLibrary);
-   
-   addButtons();
-    
-  
-  });
-  </script>
+ <script>createFormModal(); </script>
 
 <!--*************************************-->
 </body>

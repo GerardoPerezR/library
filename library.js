@@ -1,6 +1,4 @@
 
-
-
 //book object constructor
 function Book(title, author, pages, isbn, read,id) {
   this.title = title;
@@ -11,12 +9,12 @@ function Book(title, author, pages, isbn, read,id) {
   this.id = id;
   
 }
+//************************ */
 
 const book1 = new Book('Don Quijote', 'Cervantes', 587, 34623, true, 1, );
 const book2 = new Book('Ulysses', 'James Joyce', 236, 247623, true, 2);
 
 const myLibrary = [book1, book2];
-//************************* */
 const createBookCard = (book) => {
 
   if (book.read == true)  {
@@ -50,13 +48,13 @@ id++
   return bookCard;
 }
 
-var i = 0;
+//************************* */
 
 function displayLibrary() {
   id = 1;
+
   const bookCardsContainer = document.getElementById("books");
   bookCardsContainer.innerHTML= '';
- 
   for (var i = 0; i < myLibrary.length; i++) {
     const cardHTML = createBookCard(myLibrary[i]);
     bookCardsContainer.innerHTML += cardHTML;
@@ -67,28 +65,57 @@ function displayLibrary() {
 
 function addButtons() {
   const buttons = document.querySelectorAll('button[data-book-id]');
-  // Loop over the NodeList and add an event listener to each button
-buttons.forEach(button => {
-button.addEventListener('click', function() {
+  
+  buttons.forEach(button => {
+  button.addEventListener('click', function() {
   const bookId = this.dataset.bookId; // Get the book ID from the button's data attribute......how???
   console.log("bookId" + bookId);
   
-  const readStatus = this.dataset.readStatus; // Get the read status from the button's data attribute
-  if ( myLibrary[bookId - 1].read == true)  {
-    myLibrary[bookId - 1].read = false;
-  }
+  //toggle read Status
 
-  else{
-    myLibrary[bookId - 1].read = true;
-  }
+  (myLibrary[bookId -1].read == true) ? myLibrary[bookId - 1].read = false : myLibrary[bookId -1].read = true;
+  
+//***************************************** */
   console.log(myLibrary[bookId - 1].read)
-  // TODO: Update the read status of the book with the given ID
- 
   console.log(myLibrary)
+
   displayLibrary();
 
 });
 });
+}
+
+function createFormModal()  {
+ 
+  const submit = document.getElementById('submitButton');
+  const form = document.getElementById('newBookForm');
+  
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    var newRead = false;
+    const formData = new FormData(form);
+
+    (formData.get('read') === "on") ? newRead = true : newRead = false;
+ 
+    const newTitle = formData.get('title');
+    const newAuthor = formData.get('author');
+    const newPages = formData.get('pages');
+    const newIsbn = formData.get('isbn');
+    const newId = id;
+
+    const newBook = new Book(newTitle, newAuthor, newPages, newIsbn, newRead, newId);
+    let newBookCard = createBookCard(newBook);
+    document.getElementById('books').innerHTML += newBookCard;
+    
+    myLibrary.push(newBook)
+    console.log(newBook); console.log(myLibrary);
+   
+   addButtons();
+    
+  
+  });
+ 
 }
 
 function addBook(title, author, pages, isbn, read, id)  {
