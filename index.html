@@ -32,17 +32,28 @@
     
        id++;
     }
+   
     const buttons = document.querySelectorAll('button[data-book-id]');
     // Loop over the NodeList and add an event listener to each button
 buttons.forEach(button => {
   button.addEventListener('click', function() {
-    const bookId = this.dataset.bookId; // Get the book ID from the button's data attribute
-    console.log("BookId" + bookId)
+    const bookId = this.dataset.bookId; // Get the book ID from the button's data attribute......how???
+    console.log("bookId" + bookId);
+    
     const readStatus = this.dataset.readStatus; // Get the read status from the button's data attribute
+    if ( myLibrary[bookId - 1].read == true)  {
+      myLibrary[bookId - 1].read = false;
+    }
+
+    else{
+      myLibrary[bookId - 1].read = true;
+    }
+    console.log(myLibrary[bookId - 1].read)
     // TODO: Update the read status of the book with the given ID
     console.log("it's alive");
   });
 });
+    
     
 
    </script>
