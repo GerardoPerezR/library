@@ -74,7 +74,7 @@ var i = 0;
 
 
 function displayLibrary() {
-  id = 1
+  id = 1;
     const bookCardsContainer = document.getElementById("books");
   bookCardsContainer.innerHTML= '';
  
