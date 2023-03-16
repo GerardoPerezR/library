@@ -1,8 +1,6 @@
 
 
 
-
-
 //book object constructor
 function Book(title, author, pages, isbn, read,id) {
   this.title = title;
@@ -12,7 +10,6 @@ function Book(title, author, pages, isbn, read,id) {
   this.read = read;
   this.id = id;
   
-
 }
 
 
@@ -20,17 +17,6 @@ const book1 = new Book('Don Quijote', 'Cervantes', 587, 34623, true, 1, );
 const book2 = new Book('Ulysses', 'James Joyce', 236, 247623, true, 2);
 
 const myLibrary = [book1, book2];
-
-
-
-
-
-
-
-//create book card
-
-
-
 
 
 const createBookCard = (book) => {
@@ -69,7 +55,7 @@ id++
 }
 
 var i = 0;
- var id = i + 1;
+var id = i + 1;
 
 
 
@@ -91,10 +77,6 @@ function displayLibrary() {
     
   }  addButtons();
 }
-
-//const readSwitch = document.getElementById(`readCheckbox${id}`)
-  
-
 
 function addButtons() {
   const buttons = document.querySelectorAll('button[data-book-id]');
@@ -150,7 +132,6 @@ function addButtons2() {
 }
 
   // add book to library
-
 
 
 function addBook(title, author, pages, isbn, read, id)  {

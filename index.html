@@ -103,8 +103,10 @@ buttons.forEach(button => {
     </div>
   </div>
 
+
+  //new Book Form
 <script>  
-  //new Book
+
   const submit = document.getElementById('submitButton');
   const form = document.getElementById('newBookForm');
   
@@ -132,7 +134,7 @@ buttons.forEach(button => {
     let newBookCard = createBookCard(newBook);
    
     document.getElementById('books').innerHTML += newBookCard;
-   myLibrary.push(newBook)
+    myLibrary.push(newBook)
     console.log(newBook);
    
     console.log(myLibrary)
