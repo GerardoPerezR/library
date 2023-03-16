@@ -69,9 +69,7 @@ const createBookCard = (book) => {
 }
 
 
-//Create eventlistener for read switch to change read 
 
-const eventListenerArray = [];
 
 
 

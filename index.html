@@ -28,9 +28,6 @@
 
    
 
-      eventListenerArray.push(`switchRead${id}`);
-      console.log(eventListenerArray);
-
 
     
        id++;
@@ -40,6 +37,7 @@
 buttons.forEach(button => {
   button.addEventListener('click', function() {
     const bookId = this.dataset.bookId; // Get the book ID from the button's data attribute
+    console.log("BookId" + bookId)
     const readStatus = this.dataset.readStatus; // Get the read status from the button's data attribute
     // TODO: Update the read status of the book with the given ID
     console.log("it's alive");
@@ -138,7 +136,11 @@ buttons.forEach(button => {
 buttons.forEach(button => {
   button.addEventListener('click', function() {
     const bookId = this.dataset.bookId; // Get the book ID from the button's data attribute
+    console.log("bookId" + bookId);
+    
     const readStatus = this.dataset.readStatus; // Get the read status from the button's data attribute
+    readStatus === true ? myLibrary[bookId - 1].read = false: myLibrary[bookId - 1].read = true;
+    console.log(readStatus)
     // TODO: Update the read status of the book with the given ID
     console.log("it's alive");
   });
