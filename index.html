@@ -22,13 +22,31 @@
 
    
     for (var i = 0; i < myLibrary.length; i++) {
+        var id = i+1;
        const cardHTML = createBookCard(myLibrary[i]);
        bookCardsContainer.innerHTML += cardHTML;
+
+   
+
+      eventListenerArray.push(`switchRead${id}`);
+      console.log(eventListenerArray);
+
+
     
        id++;
     }
-
+    const buttons = document.querySelectorAll('button[data-book-id]');
+    // Loop over the NodeList and add an event listener to each button
+buttons.forEach(button => {
+  button.addEventListener('click', function() {
+    const bookId = this.dataset.bookId; // Get the book ID from the button's data attribute
+    const readStatus = this.dataset.readStatus; // Get the read status from the button's data attribute
+    // TODO: Update the read status of the book with the given ID
+    console.log("it's alive");
+  });
+});
     
+
    </script>
 
     </div>
@@ -82,7 +100,9 @@
     </div>
   </div>
 
-<script>  const submit = document.getElementById('submitButton');
+<script>  
+  //new Book
+  const submit = document.getElementById('submitButton');
   const form = document.getElementById('newBookForm');
   
   form.addEventListener('submit', (event) => {
@@ -97,13 +117,25 @@
     const newId = id;
   
     const newBook = new Book(newTitle, newAuthor, newPages, newIsbn, newRead, newId);
-  
+    
     let newBookCard = createBookCard(newBook);
     id++;
     document.getElementById('books').innerHTML += newBookCard;
    myLibrary.push(newBook)
     console.log(newBook);
     console.log(myLibrary)
+
+    const buttons = document.querySelectorAll('button[data-book-id]');
+    // Loop over the NodeList and add an event listener to each button
+buttons.forEach(button => {
+  button.addEventListener('click', function() {
+    const bookId = this.dataset.bookId; // Get the book ID from the button's data attribute
+    const readStatus = this.dataset.readStatus; // Get the read status from the button's data attribute
+    // TODO: Update the read status of the book with the given ID
+    console.log("it's alive");
+  });
+});
+    
   
   });</script>
 
