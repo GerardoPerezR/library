@@ -107,13 +107,21 @@ buttons.forEach(button => {
   
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    
-    const formData = new FormData(form);
+    var newRead = false;
+       const formData = new FormData(form);
+    if (formData.get('read') === "on")  {
+        newRead = true;
+    }
+    else{
+       newRead = false;
+    }
+
+ 
     const newTitle = formData.get('title');
     const newAuthor = formData.get('author');
     const newPages = formData.get('pages');
     const newIsbn = formData.get('isbn');
-    const newRead = formData.get('read');
+   
     const newId = id;
   
     const newBook = new Book(newTitle, newAuthor, newPages, newIsbn, newRead, newId);
