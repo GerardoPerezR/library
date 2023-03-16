@@ -74,8 +74,10 @@ var i = 0;
 
 
 function displayLibrary() {
+  id = 1
     const bookCardsContainer = document.getElementById("books");
   bookCardsContainer.innerHTML= '';
+ 
 
   for (var i = 0; i < myLibrary.length; i++) {
    
