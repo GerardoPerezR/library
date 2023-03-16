@@ -18,20 +18,11 @@
 
     <div class="row" id="books">
    <script>
-    const bookCardsContainer = document.getElementById("books");
+  
 
    
-    for (var i = 0; i < myLibrary.length; i++) {
-        var id = i+1;
-       const cardHTML = createBookCard(myLibrary[i]);
-       bookCardsContainer.innerHTML += cardHTML;
+    displayLibrary();
 
-   
-
-
-    
-       id++;
-    }
    
     const buttons = document.querySelectorAll('button[data-book-id]');
     // Loop over the NodeList and add an event listener to each button
@@ -50,7 +41,10 @@ buttons.forEach(button => {
     }
     console.log(myLibrary[bookId - 1].read)
     // TODO: Update the read status of the book with the given ID
-    console.log("it's alive");
+   
+    console.log(myLibrary)
+    displayLibrary();
+ 
   });
 });
     
@@ -130,38 +124,20 @@ buttons.forEach(button => {
     const newAuthor = formData.get('author');
     const newPages = formData.get('pages');
     const newIsbn = formData.get('isbn');
-   
+ 
     const newId = id;
-  
+    console.log(newId);
     const newBook = new Book(newTitle, newAuthor, newPages, newIsbn, newRead, newId);
     
     let newBookCard = createBookCard(newBook);
-    id++;
+   
     document.getElementById('books').innerHTML += newBookCard;
    myLibrary.push(newBook)
     console.log(newBook);
+   
     console.log(myLibrary)
 
-    const buttons = document.querySelectorAll('button[data-book-id]');
-    // Loop over the NodeList and add an event listener to each button
-buttons.forEach(button => {
-  button.addEventListener('click', function() {
-    const bookId = this.dataset.bookId; // Get the book ID from the button's data attribute......how???
-    console.log("bookId" + bookId);
-    
-    const readStatus = this.dataset.readStatus; // Get the read status from the button's data attribute
-    if ( myLibrary[bookId - 1].read == true)  {
-      myLibrary[bookId - 1].read = false;
-    }
-
-    else{
-      myLibrary[bookId - 1].read = true;
-    }
-    console.log(myLibrary[bookId - 1].read)
-    // TODO: Update the read status of the book with the given ID
-    console.log("it's alive");
-  });
-});
+  addButtons();
     
   
   });</script>

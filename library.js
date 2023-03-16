@@ -62,20 +62,90 @@ const createBookCard = (book) => {
     
 
 
-
+id++
 
 
   return bookCard;
 }
 
+var i = 0;
+ var id = i + 1;
+
+
+
+function displayLibrary() {
+    const bookCardsContainer = document.getElementById("books");
+  bookCardsContainer.innerHTML= '';
+
+  for (var i = 0; i < myLibrary.length; i++) {
+   
+    const cardHTML = createBookCard(myLibrary[i]);
+    bookCardsContainer.innerHTML += cardHTML;
 
 
 
 
+
+    
+  }  addButtons();
+}
 
 //const readSwitch = document.getElementById(`readCheckbox${id}`)
+  
 
 
+function addButtons() {
+  const buttons = document.querySelectorAll('button[data-book-id]');
+  // Loop over the NodeList and add an event listener to each button
+buttons.forEach(button => {
+button.addEventListener('click', function() {
+  const bookId = this.dataset.bookId; // Get the book ID from the button's data attribute......how???
+  console.log("bookId" + bookId);
+  
+  const readStatus = this.dataset.readStatus; // Get the read status from the button's data attribute
+  if ( myLibrary[bookId - 1].read == true)  {
+    myLibrary[bookId - 1].read = false;
+  }
+
+  else{
+    myLibrary[bookId - 1].read = true;
+  }
+  console.log(myLibrary[bookId - 1].read)
+  // TODO: Update the read status of the book with the given ID
+ 
+  console.log(myLibrary)
+  displayLibrary();
+
+});
+});
+}
+
+addButtons2();
+function addButtons2() {
+  const buttons = document.querySelectorAll('button[data-book-id]');
+  // Loop over the NodeList and add an event listener to each button
+  buttons.forEach(button => {
+    button.addEventListener('click', function () {
+
+
+
+      console.log("Read Status" + newBook.read);
+      if (newBook.read == true) {
+        newBook.read = false;
+      }
+
+      else {
+        newBook.read = true;
+      }
+
+      console.log(newBook.read);
+      // TODO: Update the read status of the book with the given ID
+      console.log("it's alive");
+      displayLibrary();
+      console.log(myLibrary);
+    });
+  });
+}
 
   // add book to library
 
