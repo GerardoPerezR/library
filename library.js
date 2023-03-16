@@ -12,12 +12,11 @@ function Book(title, author, pages, isbn, read,id) {
   
 }
 
-
 const book1 = new Book('Don Quijote', 'Cervantes', 587, 34623, true, 1, );
 const book2 = new Book('Ulysses', 'James Joyce', 236, 247623, true, 2);
 
 const myLibrary = [book1, book2];
-
+//************************* */
 const createBookCard = (book) => {
 
   if (book.read == true)  {
@@ -46,17 +45,12 @@ const createBookCard = (book) => {
 ;
     
 
-
 id++
-
 
   return bookCard;
 }
 
 var i = 0;
-
-
-
 
 function displayLibrary() {
   id = 1;
@@ -64,11 +58,10 @@ function displayLibrary() {
   bookCardsContainer.innerHTML= '';
  
   for (var i = 0; i < myLibrary.length; i++) {
-   
     const cardHTML = createBookCard(myLibrary[i]);
     bookCardsContainer.innerHTML += cardHTML;
 }
-  
+
   addButtons();
 }
 

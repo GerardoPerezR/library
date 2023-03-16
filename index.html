@@ -21,8 +21,7 @@
  <div class="container-fluid">
    <div class="row" id="books">
       <script>
-      displayLibrary();
-  
+        displayLibrary();
       </script>
     </div>
   </div>
@@ -83,8 +82,10 @@
   
   form.addEventListener('submit', (event) => {
     event.preventDefault();
+
     var newRead = false;
-       const formData = new FormData(form);
+    const formData = new FormData(form);
+
     if (formData.get('read') === "on")  {
         newRead = true;
     }
@@ -92,25 +93,20 @@
        newRead = false;
     }
 
- 
     const newTitle = formData.get('title');
     const newAuthor = formData.get('author');
     const newPages = formData.get('pages');
     const newIsbn = formData.get('isbn');
- 
     const newId = id;
-    console.log(newId);
-    const newBook = new Book(newTitle, newAuthor, newPages, newIsbn, newRead, newId);
-    
-    let newBookCard = createBookCard(newBook);
-   
-    document.getElementById('books').innerHTML += newBookCard;
-    myLibrary.push(newBook)
-    console.log(newBook);
-   
-    console.log(myLibrary)
 
-  addButtons();
+    const newBook = new Book(newTitle, newAuthor, newPages, newIsbn, newRead, newId);
+    let newBookCard = createBookCard(newBook);
+    document.getElementById('books').innerHTML += newBookCard;
+    
+    myLibrary.push(newBook)
+    console.log(newBook); console.log(myLibrary);
+   
+   addButtons();
     
   
   });
